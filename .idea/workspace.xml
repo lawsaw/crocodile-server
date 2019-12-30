@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="77a8e077-84b1-4f86-9c97-7ea80160ffbb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/store.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,20 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="66" column="34" lean-forward="true" selection-start-line="66" selection-start-column="34" selection-end-line="66" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="6" lean-forward="true" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+            <state relative-caret-position="651">
+              <caret line="262" column="4" selection-start-line="262" selection-start-column="4" selection-end-line="262" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -33,26 +26,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/store.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="152" column="4" selection-start-line="152" selection-start-column="4" selection-end-line="152" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/store-old.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="173" column="26" selection-start-line="173" selection-start-column="20" selection-end-line="173" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app-old.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="132" column="32" lean-forward="true" selection-start-line="132" selection-start-column="32" selection-end-line="132" selection-end-column="32" />
+            <state relative-caret-position="2405">
+              <caret line="281" column="18" selection-start-line="281" selection-start-column="18" selection-end-line="281" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -61,17 +36,10 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>resetRoomTimer</find>
-      <find>emitUserRoom</find>
-      <find>emitRoom</find>
-      <find>getNicknameErrors</find>
-      <find>store</find>
-      <find>setTimer</find>
       <find>getTimer</find>
       <find>isTimerRunning</find>
       <find>ROOM_STATUS_PAINTER_SELECTING</find>
       <find>setRoomStatus</find>
-      <find>isGameRunning</find>
       <find>resetCountdown</find>
       <find>SOCKET_ON_ROOM_LEAVE</find>
       <find>leaveRoom</find>
@@ -80,17 +48,24 @@
       <find>resetPainter</find>
       <find>SOCKET_ON_ROOM</find>
       <find>words</find>
-      <find>getRoomStatus</find>
       <find>handleWordSelect</find>
       <find>setWord</find>
       <find>isRoomReadyToStartGame</find>
       <find>ROOM_STATUS_GAME_FINISHED</find>
       <find>isRoomReadyToStart</find>
-      <find>cleanRoom</find>
       <find>winner</find>
       <find>setWinner</find>
       <find>resetPlayers</find>
       <find>gameRestart</find>
+      <find>cleanRoom</find>
+      <find>ROOM_STATUS_WAITING</find>
+      <find>isGameRunning</find>
+      <find>startRoomCountdown</find>
+      <find>getRoomStatus</find>
+      <find>resetGame</find>
+      <find>isWordGuessed</find>
+      <find>getRandomValue</find>
+      <find>console</find>
     </findStrings>
     <replaceStrings>
       <replace>ON_ROOM_UPDATE</replace>
@@ -111,6 +86,7 @@
         <option value="$PROJECT_DIR$/etc.js" />
         <option value="$PROJECT_DIR$/words.js" />
         <option value="$PROJECT_DIR$/app------222.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/store.js" />
         <option value="$PROJECT_DIR$/app.js" />
       </list>
@@ -124,8 +100,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="3004" />
-    <option name="width" value="836" />
+    <option name="x" value="3197" />
+    <option name="width" value="643" />
     <option name="height" value="1200" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -157,6 +133,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -200,18 +177,19 @@
       <workItem from="1574325905217" duration="14468000" />
       <workItem from="1575545279408" duration="39290000" />
       <workItem from="1575986249326" duration="6541000" />
-      <workItem from="1576588848609" duration="34407000" />
+      <workItem from="1576588848609" duration="34651000" />
+      <workItem from="1577695995180" duration="16703000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="248249000" />
+    <option name="totallyTimeSpent" value="265196000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="3004" y="0" width="836" height="1200" extended-state="0" />
+    <frame x="3197" y="0" width="643" height="1200" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4975728" visible="true" weight="0.29441625" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4975728" weight="0.2713568" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24941725" />
       <window_info id="npm" order="2" sideWeight="0.50242716" side_tool="true" weight="0.034965035" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -226,7 +204,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.23485555" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.19012116" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -318,36 +296,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/store-old.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
+        <state relative-caret-position="2595">
           <caret line="173" column="26" selection-start-line="173" selection-start-column="20" selection-end-line="173" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app-old.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
+        <state relative-caret-position="1980">
           <caret line="132" column="32" lean-forward="true" selection-start-line="132" selection-start-column="32" selection-end-line="132" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/store.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="152" column="4" selection-start-line="152" selection-start-column="4" selection-end-line="152" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="66" column="34" lean-forward="true" selection-start-line="66" selection-start-column="34" selection-end-line="66" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="6" lean-forward="true" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+        <state relative-caret-position="255">
+          <caret line="17" column="15" lean-forward="true" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/store.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2405">
+          <caret line="281" column="18" selection-start-line="281" selection-start-column="18" selection-end-line="281" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="651">
+          <caret line="262" column="4" selection-start-line="262" selection-start-column="4" selection-end-line="262" selection-end-column="4" />
         </state>
       </provider>
     </entry>

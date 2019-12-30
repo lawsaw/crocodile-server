@@ -5,6 +5,10 @@ const INITIAL_ROOM = {
     image: '',
 };
 
+function getRandomValue(max=999999, min=111111) {
+    return Math.round(Math.random() * (max - min) + min);
+}
+
 const COUNTDOWN = 5;
 
 const ROOM_STATUS_WAITING = 'ROOM_STATUS_WAITING';
@@ -22,14 +26,22 @@ const STATIC_ROOMS = [
 let Store = function() {
 
     let words = [
-        'Собака',
+        'Орбита',
         'Слон',
-        'Дом',
+        'Хижина',
         'Дождь',
-        'Снег',
+        'Снеговик',
         'Сейф',
         'Гитара',
         'Стакан',
+        'Конь',
+        'Гипотенуза',
+        'Вишня',
+        'Петух',
+        'Лыжи',
+        'Веник',
+        'Ракета',
+        'Паук',
     ];
 
     let store = {};
@@ -178,8 +190,10 @@ let Store = function() {
 
     chat = (user, message) => {
         const { room } = user;
-        //console.log(room, nickname, message);
+        let id = getRandomValue() + getRandomValue();
+        console.log(room, id);
         store[room].chat.push({
+            id,
             player: user,
             message,
         });
@@ -222,17 +236,27 @@ let Store = function() {
         store[room].winner = null;
         store[room].countdown = COUNTDOWN;
         store[room].timer = false;
+        clearInterval(timers[room]);
         resetPlayers(room);
     }
 
-    // gameRestart = (room) => {
-    //     setTimeout(() => {
-    //         cleanRoom(room);
-    //         if(isRoomReadyToStart(room)) {
-    //             setRoomTimerToStart(room);
-    //         }
-    //     }, 3000);
-    // }
+    isPlayerPainter = (room, playerId) => {
+        console.log(playerId);
+        console.log(store[room].players);
+        console.log(store[room].players[playerId]);
+        return store[room].players[playerId].isPainter;
+    }
+
+    messageLikeToggle = (room, id) => {
+        let chat = store[room].chat;
+        let item = chat.find(item => item.id === id);
+        item.isLiked = !item.isLiked;
+        store[room].chat = chat;
+    }
+
+    isWordGuessed = (room, message) => {
+        return message.indexOf(getWord(room).toLowerCase()) !== -1;
+    }
 
     return {
         getRoomList,
@@ -241,7 +265,6 @@ let Store = function() {
         getRoom,
         addRoom,
         getRoomPlayersCount,
-        getRoomStatus,
         setCountdown,
         resetCountdown,
         getCountdown,
@@ -257,8 +280,10 @@ let Store = function() {
         getWord,
         setImage,
         setWinner,
-        //gameRestart,
         cleanRoom,
+        isPlayerPainter,
+        messageLikeToggle,
+        isWordGuessed,
     }
 
 };

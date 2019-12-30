@@ -11,7 +11,6 @@ const ROOM_LOBBY = 'LOBBY';
 const STORE = new Store();
 const WORDS = new Words();
 
-
 const SOCKET_LOBBY_SERVER = 'SOCKET_LOBBY_SERVER';
 const SOCKET_LOBBY_CLIENT = 'SOCKET_LOBBY_CLIENT';
 
@@ -27,7 +26,7 @@ const LOBBY_ACTION_SET_STEP = 'LOBBY_ACTION_SET_STEP';
 const SOCKET_MESSAGE = 'SOCKET_MESSAGE';
 const SOCKET_ON_WORD_SELECT = 'SOCKET_ON_WORD_SELECT';
 const SOCKET_ON_PAINT = 'SOCKET_ON_PAINT';
-
+const SOCKET_ON_MESSAGE_LIKE = 'SOCKET_ON_MESSAGE_LIKE';
 
 const LOBBY_STEP_NICKNAME = 'LOBBY_STEP_NICKNAME';
 const LOBBY_STEP_ROOM_SELECTION = 'LOBBY_STEP_ROOM_SELECTION';
@@ -50,30 +49,29 @@ const doAction = {
     [SOCKET_ON_CHAT]:               onChat,
     [SOCKET_ON_WORD_SELECT]:        onWordSelect,
     [SOCKET_ON_PAINT]:              onPaint,
+    [SOCKET_ON_MESSAGE_LIKE]:       onMessageLike,
 };
-
 
 function onChat(socket, message) {
     const { room } = socket.user;
     STORE.chat(socket.user, message);
 
-    if(STORE.getRoomStatus(room) === ROOM_STATUS_DRAWING && isWordGuessed(room, message)) {
+    if(STORE.getRoomStatus(room) === ROOM_STATUS_DRAWING && STORE.isWordGuessed(room, message)) {
         STORE.setRoomStatus(room, ROOM_STATUS_GAME_FINISHED);
         STORE.setWinner(room, socket.id);
         emitRoom(room);
-        //STORE.cleanRoom(room);
-        //STORE.gameRestart(room);
-        setTimeout(() => {
-            STORE.cleanRoom(room);
-            startRoomCountdown(room);
-        }, 3000);
+        resetGame(room);
     } else {
         emitRoom(room);
     }
 }
 
-function isWordGuessed(room, message) {
-    return STORE.getWord(room) === message;
+function resetGame(room, timeout=3000) {
+    setTimeout(() => {
+        STORE.cleanRoom(room);
+        emitRoom(room);
+        startRoomCountdown(room);
+    }, timeout);
 }
 
 function sendMessage(receiver, type, message) {
@@ -113,12 +111,6 @@ function getNicknameErrors(nickname) {
         status: 'success',
     };
 }
-
-// function getRoomPlayers(room) {
-//     return IO.sockets.clients(room).sockets;
-// }
-//
-// function update
 
 function isNicknameInUse(nickname) {
     const sockets = IO.sockets.clients().sockets;
@@ -163,21 +155,25 @@ function joinRoom(socket, { room }) {
     emitRoomList(socket.to(ROOM_LOBBY));
     socket.emit(SOCKET_ON_ROOM_JOIN);
     if(!STORE.isTimerRunning(room) && STORE.isRoomReadyToStart(room) && !STORE.isGameRunning(room)) {
-        console.log('run countdown');
+        //console.log('run countdown');
         startRoomCountdown(room);
     } else {
         emitRoom(room, socket.to(room));
     }
-    console.log(`A user ${socket.user.nickname} has joined room ${room}`);
+    //console.log(`A user ${socket.user.nickname} has joined room ${room}`);
 }
 
 function leaveRoom(socket) {
     const { room } = socket.user;
     if(!room) return false;
+    let isPlayerPainter = STORE.isPlayerPainter(room, socket.id);
     socket.leave(room);
     STORE.leaveRoom(socket.user, room);
     if(!STORE.isTimerRunning(room) && !STORE.isRoomReadyToStart(room)) {
         STORE.cleanRoom(room);
+    }
+    if(STORE.isGameRunning(room) && isPlayerPainter && STORE.isRoomReadyToStart(room)) {
+        resetGame(room, 0);
     }
     emitRoom(room);
     socket.emit(SOCKET_ON_ROOM_LEAVE);
@@ -186,7 +182,7 @@ function leaveRoom(socket) {
         step: LOBBY_STEP_ROOM_SELECTION,
     });
     emitRoomList(socket.to(ROOM_LOBBY));
-    console.log(`A user ${socket.user.nickname} has left room ${room}`);
+    //console.log(`A user ${socket.user.nickname} has left room ${room}`);
 }
 
 function emitUserRoom(socket) {
@@ -203,13 +199,13 @@ function emitRoom(room, receiverProp) {
 
 function startRoomCountdown(room) {
     STORE.setRoomStatus(room, ROOM_STATUS_PAINTER_SELECTING);
-    console.log('starting ' + room);
-    let counter = 0;
+    //console.log('starting ' + room);
+    //let counter = 0;
     STORE.setTimer(
         room,
         () => {
             emitRoom(room);
-            console.log('emit ' + ++counter);
+            //console.log('emit ' + ++counter);
         }
     );
 }
@@ -227,72 +223,40 @@ function onPaint(socket, image) {
     emitRoom(room);
 }
 
-// function setPainter() {
-//
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
+function onMessageLike(socket, id) {
+    const { room } = socket.user;
+    STORE.messageLikeToggle(room, id);
+    emitRoom(room);
+}
 
 function onConnected(socket) {
     const { id } = socket;
     socket.user = {};
     socket.user.id = id;
     socket.join(ROOM_LOBBY);
-    console.log('connected ' + id);
+    //console.log('connected ' + id);
 }
 
 function onDisconnected(socket) {
     const { id } = socket;
-    console.log('disconnected ' + id);
+    //console.log('disconnected ' + id);
     doAction[SOCKET_ON_ROOM_LEAVE](socket);
 }
 
 IO.on('connection', socket => {
+
     onConnected(socket);
+
     socket.on('disconnect', () => {
         onDisconnected(socket);
     });
-    socket.on(SOCKET_ON_LOBBY_STEP_CHANGE, props => {
-        doAction[SOCKET_ON_LOBBY_STEP_CHANGE](socket, props);
+
+    Object.keys(doAction).forEach(action => {
+        socket.on(action, props => {
+            doAction[action](socket, props);
+        });
     });
-    socket.on(SOCKET_ON_NICKNAME_CHANGE, props => {
-        doAction[SOCKET_ON_NICKNAME_CHANGE](socket, props);
-    });
-    socket.on(SOCKET_ON_ROOM_LIST, () => {
-        doAction[SOCKET_ON_ROOM_LIST](socket);
-    });
-    socket.on(SOCKET_ON_ROOM_ADD, props => {
-        doAction[SOCKET_ON_ROOM_ADD](socket, props);
-    });
-    socket.on(SOCKET_ON_ROOM_JOIN, props => {
-        doAction[SOCKET_ON_ROOM_JOIN](socket, props);
-    });
-    socket.on(SOCKET_ON_ROOM, () => {
-        doAction[SOCKET_ON_ROOM](socket);
-    });
-    socket.on(SOCKET_ON_ROOM_LEAVE, () => {
-        doAction[SOCKET_ON_ROOM_LEAVE](socket);
-    });
-    socket.on(SOCKET_ON_CHAT, message => {
-        doAction[SOCKET_ON_CHAT](socket, message);
-    });
-    socket.on(SOCKET_ON_WORD_SELECT, word => {
-        doAction[SOCKET_ON_WORD_SELECT](socket, word);
-    });
-    socket.on(SOCKET_ON_PAINT, image => {
-        doAction[SOCKET_ON_PAINT](socket, image);
-    });
+
 });
 
 SERVER.listen(PORT, () => {
