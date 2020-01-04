@@ -165,10 +165,12 @@ function joinRoom(socket, { room }) {
 
 function leaveRoom(socket) {
     const { room } = socket.user;
+    //console.log(room);
     if(!room) return false;
     let isPlayerPainter = STORE.isPlayerPainter(room, socket.id);
     socket.leave(room);
     STORE.leaveRoom(socket.user, room);
+    delete socket.user.room;
     if(!STORE.isTimerRunning(room) && !STORE.isRoomReadyToStart(room)) {
         STORE.cleanRoom(room);
     }
@@ -223,9 +225,9 @@ function onPaint(socket, image) {
     emitRoom(room);
 }
 
-function onMessageLike(socket, id) {
+function onMessageLike(socket, { id, value }) {
     const { room } = socket.user;
-    STORE.messageLikeToggle(room, id);
+    STORE.messageLikeToggle(room, id, value);
     emitRoom(room);
 }
 

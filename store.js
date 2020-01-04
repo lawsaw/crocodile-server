@@ -59,6 +59,7 @@ let Store = function() {
             winner: null,
             countdown: COUNTDOWN,
             timer: false,
+            painter: null,
         };
         timers[room] = null;
     });
@@ -96,6 +97,7 @@ let Store = function() {
             winner: null,
             countdown: COUNTDOWN,
             timer: false,
+            painter: null,
         };
         timers[room] = null;
     }
@@ -139,9 +141,9 @@ let Store = function() {
     }
 
     resetPainter = (room) => {
-        for(let player in store[room].players) {
-            store[room].players[player]['isPainter'] = false;
-        }
+        store[room].painter = null;
+        store[room].words = [];
+        store[room].word = null;
     }
 
     setPainter = (room) => {
@@ -149,8 +151,12 @@ let Store = function() {
         let arrayOfIds = Object.keys(store[room].players);
         let randomId = Math.ceil(Math.random() * arrayOfIds.length-1);
         let playerId = arrayOfIds[randomId];
-        store[room].players[playerId].isPainter = true;
-        store[room].players[playerId].words = getRandomWordList();
+        let words = getRandomWordList();
+        store[room].words = words;
+        store[room].painter = {
+            ...store[room].players[playerId],
+            id: playerId,
+        };
     }
 
     getRandomWordList = (count=3, arr=[]) => {
@@ -191,7 +197,7 @@ let Store = function() {
     chat = (user, message) => {
         const { room } = user;
         let id = getRandomValue() + getRandomValue();
-        console.log(room, id);
+        //console.log(room, id);
         store[room].chat.push({
             id,
             player: user,
@@ -218,13 +224,6 @@ let Store = function() {
         };
     }
 
-    resetPlayers = (room) => {
-        let players = store[room].players;
-        for(let player in players) {
-            store[room].players[player].isPainter = false;
-        }
-    }
-
     cleanRoom = (room) => {
         store[room].status = ROOM_STATUS_WAITING;
         store[room].chat = [];
@@ -236,26 +235,28 @@ let Store = function() {
         store[room].winner = null;
         store[room].countdown = COUNTDOWN;
         store[room].timer = false;
+        store[room].painter = null;
         clearInterval(timers[room]);
-        resetPlayers(room);
     }
 
     isPlayerPainter = (room, playerId) => {
-        console.log(playerId);
-        console.log(store[room].players);
-        console.log(store[room].players[playerId]);
-        return store[room].players[playerId].isPainter;
+        // console.log(playerId);
+        // console.log(store[room].players);
+        // console.log(store[room].players[playerId]);
+        //return store[room].players[playerId].isPainter;
+        return (store[room].painter || {}).id === playerId;
     }
 
-    messageLikeToggle = (room, id) => {
+    messageLikeToggle = (room, id, value) => {
         let chat = store[room].chat;
         let item = chat.find(item => item.id === id);
-        item.isLiked = !item.isLiked;
+        item.likeStatus = value;
+        //item.isLiked = !item.isLiked;
         store[room].chat = chat;
     }
 
     isWordGuessed = (room, message) => {
-        return message.indexOf(getWord(room).toLowerCase()) !== -1;
+        return message.toLowerCase().indexOf(getWord(room).toLowerCase()) !== -1;
     }
 
     return {

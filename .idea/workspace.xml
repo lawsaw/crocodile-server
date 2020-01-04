@@ -17,8 +17,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="651">
-              <caret line="262" column="4" selection-start-line="262" selection-start-column="4" selection-end-line="262" selection-end-column="4" />
+            <state relative-caret-position="261">
+              <caret line="237" column="28" lean-forward="true" selection-start-line="237" selection-start-column="28" selection-end-line="237" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -26,8 +26,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/store.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2405">
-              <caret line="281" column="18" selection-start-line="281" selection-start-column="18" selection-end-line="281" selection-end-column="18" />
+            <state relative-caret-position="352">
+              <caret line="205" column="5" lean-forward="true" selection-start-line="205" selection-start-column="5" selection-end-line="205" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -36,18 +36,10 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getTimer</find>
-      <find>isTimerRunning</find>
-      <find>ROOM_STATUS_PAINTER_SELECTING</find>
-      <find>setRoomStatus</find>
       <find>resetCountdown</find>
-      <find>SOCKET_ON_ROOM_LEAVE</find>
-      <find>leaveRoom</find>
       <find>chat</find>
       <find>painter</find>
-      <find>resetPainter</find>
       <find>SOCKET_ON_ROOM</find>
-      <find>words</find>
       <find>handleWordSelect</find>
       <find>setWord</find>
       <find>isRoomReadyToStartGame</find>
@@ -55,7 +47,6 @@
       <find>isRoomReadyToStart</find>
       <find>winner</find>
       <find>setWinner</find>
-      <find>resetPlayers</find>
       <find>gameRestart</find>
       <find>cleanRoom</find>
       <find>ROOM_STATUS_WAITING</find>
@@ -64,8 +55,17 @@
       <find>getRoomStatus</find>
       <find>resetGame</find>
       <find>isWordGuessed</find>
-      <find>getRandomValue</find>
       <find>console</find>
+      <find>getRandomValue</find>
+      <find>leaveRoom</find>
+      <find>SOCKET_ON_ROOM_LEAVE</find>
+      <find>resetPainter</find>
+      <find>resetPlayers</find>
+      <find>isPainter</find>
+      <find>isPlayerPainter</find>
+      <find>SOCKET_ON_MESSAGE_LIKE</find>
+      <find>words</find>
+      <find>console.log</find>
     </findStrings>
     <replaceStrings>
       <replace>ON_ROOM_UPDATE</replace>
@@ -87,8 +87,8 @@
         <option value="$PROJECT_DIR$/words.js" />
         <option value="$PROJECT_DIR$/app------222.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/store.js" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/store.js" />
       </list>
     </option>
   </component>
@@ -100,8 +100,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="3197" />
-    <option name="width" value="643" />
+    <option name="x" value="3140" />
+    <option name="width" value="700" />
     <option name="height" value="1200" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -178,15 +178,16 @@
       <workItem from="1575545279408" duration="39290000" />
       <workItem from="1575986249326" duration="6541000" />
       <workItem from="1576588848609" duration="34651000" />
-      <workItem from="1577695995180" duration="16703000" />
+      <workItem from="1577695995180" duration="20816000" />
+      <workItem from="1577952614240" duration="44177000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="265196000" />
+    <option name="totallyTimeSpent" value="313486000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="3197" y="0" width="643" height="1200" extended-state="0" />
+    <frame x="3140" y="0" width="700" height="1200" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4975728" weight="0.2713568" />
@@ -204,7 +205,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.19012116" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.1891892" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -317,15 +318,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/store.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2405">
-          <caret line="281" column="18" selection-start-line="281" selection-start-column="18" selection-end-line="281" selection-end-column="18" />
+        <state relative-caret-position="352">
+          <caret line="205" column="5" lean-forward="true" selection-start-line="205" selection-start-column="5" selection-end-line="205" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="651">
-          <caret line="262" column="4" selection-start-line="262" selection-start-column="4" selection-end-line="262" selection-end-column="4" />
+        <state relative-caret-position="261">
+          <caret line="237" column="28" lean-forward="true" selection-start-line="237" selection-start-column="28" selection-end-line="237" selection-end-column="28" />
         </state>
       </provider>
     </entry>
