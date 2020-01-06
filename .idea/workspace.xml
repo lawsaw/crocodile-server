@@ -4,7 +4,6 @@
     <list default="true" id="77a8e077-84b1-4f86-9c97-7ea80160ffbb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/store.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,8 +16,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="237" column="28" lean-forward="true" selection-start-line="237" selection-start-column="28" selection-end-line="237" selection-end-column="28" />
+            <state relative-caret-position="390">
+              <caret line="243" column="43" selection-start-line="243" selection-start-column="43" selection-end-line="243" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -26,8 +25,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/store.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="205" column="5" lean-forward="true" selection-start-line="205" selection-start-column="5" selection-end-line="205" selection-end-column="5" />
+            <state relative-caret-position="3075">
+              <caret line="205" column="5" selection-start-line="205" selection-start-column="5" selection-end-line="205" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -87,8 +86,8 @@
         <option value="$PROJECT_DIR$/words.js" />
         <option value="$PROJECT_DIR$/app------222.js" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/store.js" />
+        <option value="$PROJECT_DIR$/app.js" />
       </list>
     </option>
   </component>
@@ -99,9 +98,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="3140" />
-    <option name="width" value="700" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1920" />
+    <option name="width" value="1920" />
     <option name="height" value="1200" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -109,28 +108,7 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="crocodile-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="crocodile-server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="crocodile-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="bcb0276e:PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="crocodile-server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -179,15 +157,18 @@
       <workItem from="1575986249326" duration="6541000" />
       <workItem from="1576588848609" duration="34651000" />
       <workItem from="1577695995180" duration="20816000" />
-      <workItem from="1577952614240" duration="44177000" />
+      <workItem from="1577952614240" duration="45420000" />
+      <workItem from="1578299410958" duration="368000" />
+      <workItem from="1578299859617" duration="467000" />
+      <workItem from="1578327764131" duration="10000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="313486000" />
+    <option name="totallyTimeSpent" value="315574000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="3140" y="0" width="700" height="1200" extended-state="0" />
+    <frame x="1920" y="0" width="1920" height="1200" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4975728" weight="0.2713568" />
@@ -205,7 +186,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.1891892" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.18359739" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -316,17 +297,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/store.js">
+    <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="205" column="5" lean-forward="true" selection-start-line="205" selection-start-column="5" selection-end-line="205" selection-end-column="5" />
+        <state relative-caret-position="390">
+          <caret line="243" column="43" selection-start-line="243" selection-start-column="43" selection-end-line="243" selection-end-column="43" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
+    <entry file="file://$PROJECT_DIR$/store.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="237" column="28" lean-forward="true" selection-start-line="237" selection-start-column="28" selection-end-line="237" selection-end-column="28" />
+        <state relative-caret-position="3075">
+          <caret line="205" column="5" selection-start-line="205" selection-start-column="5" selection-end-line="205" selection-end-column="5" />
         </state>
       </provider>
     </entry>
