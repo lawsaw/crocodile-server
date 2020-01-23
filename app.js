@@ -6,6 +6,8 @@ const Store = require('./store');
 const Words = require('./words');
 const F = require('./etc');
 
+const TIME_TO_RESET_GAME = 5000;
+
 const ROOM_LOBBY = 'LOBBY';
 
 const STORE = new Store();
@@ -66,7 +68,7 @@ function onChat(socket, message) {
     }
 }
 
-function resetGame(room, timeout=3000) {
+function resetGame(room, timeout=TIME_TO_RESET_GAME) {
     setTimeout(() => {
         STORE.cleanRoom(room);
         emitRoom(room);
@@ -236,12 +238,12 @@ function onConnected(socket) {
     socket.user = {};
     socket.user.id = id;
     socket.join(ROOM_LOBBY);
-    //console.log('connected ' + id);
+    console.log('connected ' + id);
 }
 
 function onDisconnected(socket) {
     const { id } = socket;
-    //console.log('disconnected ' + id);hhh
+    console.log('disconnected ' + id);
     doAction[SOCKET_ON_ROOM_LEAVE](socket);
 }
 

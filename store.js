@@ -9,7 +9,7 @@ function getRandomValue(max=999999, min=111111) {
     return Math.round(Math.random() * (max - min) + min);
 }
 
-const COUNTDOWN = 5;
+const COUNTDOWN = 10;
 
 const ROOM_STATUS_WAITING = 'ROOM_STATUS_WAITING';
 const ROOM_STATUS_PAINTER_SELECTING = 'ROOM_STATUS_PAINTER_SELECTING';
@@ -56,10 +56,10 @@ let Store = function() {
             image: null,
             words: [],
             word: null,
-            winner: null,
+            winner: {},
             countdown: COUNTDOWN,
             timer: false,
-            painter: null,
+            painter: {},
         };
         timers[room] = null;
     });
@@ -88,16 +88,17 @@ let Store = function() {
     addRoom = (room) => {
         store[room] = {
             status: ROOM_STATUS_WAITING,
+            statusText: STATUS_MAP[ROOM_STATUS_WAITING](),
             chat: [],
             players: {},
             roomName: room,
             image: null,
             words: [],
             word: null,
-            winner: null,
+            winner: {},
             countdown: COUNTDOWN,
             timer: false,
-            painter: null,
+            painter: {},
         };
         timers[room] = null;
     }
@@ -232,10 +233,10 @@ let Store = function() {
         store[room].image = null;
         store[room].words = [];
         store[room].word = null;
-        store[room].winner = null;
+        store[room].winner = {};
         store[room].countdown = COUNTDOWN;
         store[room].timer = false;
-        store[room].painter = null;
+        store[room].painter = {};
         clearInterval(timers[room]);
     }
 
